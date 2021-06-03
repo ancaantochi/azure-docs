@@ -109,12 +109,26 @@ If you used the sample scripts to [Create demo certificates](how-to-create-test-
 
 1. On Linux devices, make sure that the user **iotedge** has read permissions for the directory holding the certificates.
 
-1. If you've used any other certificates for IoT Edge on the device before, delete the files in the following two directories before starting or restarting IoT Edge:
+1. If you've used any other certificates for IoT Edge on the device before, delete the files in the following two directories:
 
    * Linux and IoT Edge for Linux on Windows: `/var/lib/iotedge/hsm/certs` and `/var/lib/iotedge/hsm/cert_keys`
 
    * Windows using Windows containers: `C:\ProgramData\iotedge\hsm\certs` and `C:\ProgramData\iotedge\hsm\cert_keys`
 
+1. Restart the IoT Edge service.
+
+   * Linux and IoT Edge for Linux on Windows:
+
+   ```bash
+   sudo systemctl restart iotedge
+   ```
+
+   * Windows using Windows containers:
+
+   ```powershell
+   Restart-Service iotedge
+   ```
+   
 :::moniker-end
 <!-- end 1.1 -->
 
