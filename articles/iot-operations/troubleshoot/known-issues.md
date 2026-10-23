@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: troubleshooting-known-issue
 ms.custom: sfi-ropc-nochange
-ms.date: 07/30/2026
+ms.date: 10/23/2026
 ---
 
 # Known issues for Azure IoT Operations
@@ -14,6 +14,14 @@ ms.date: 07/30/2026
 This article lists the current known issues you might encounter when using Azure IoT Operations. The guidance helps you identify these issues and provides workarounds where available.
 
 For general troubleshooting guidance, see [Troubleshoot Azure IoT Operations](troubleshoot.md).
+
+## Model Context Protocol (MCP) preview issues
+
+### Deployment can fail with customer-managed certificates
+
+When MCP preview is enabled, deploying Azure IoT Operations with [your own certificate issuer](../deploy-iot-ops/howto-bring-your-own-issuer.md) can fail because MCP components continue to reference the default certificate issuer and trust bundle instead of your configured resources. Symptoms can include `IssuerNotFound`, missing TLS secrets or trust-bundle ConfigMaps, and an MCP Helm installation timeout.
+
+If you encounter this issue, [collect a support bundle](troubleshoot.md#troubleshoot-azure-iot-operations-deployment) and contact Microsoft Support.
 
 ## Azure Device Registry issues
 
